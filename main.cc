@@ -48,10 +48,11 @@ while(cin){
 		c.set_score(0);
 		pair<string,Competitor>mymap(c.get_name(),c);
 		map.insert(mymap);
-	//	continue;
 	}
-	else cout<<"PLAYER 2: "<<endl;
+	a++;
+	if(a==1){ cout<<"PLAYER 2: "<<endl;
 	//string name;
+//	cout<<"PLAYER 2: "<<endl;
 	getline(cin,name2);
 
 	Competitor c;
@@ -59,9 +60,11 @@ while(cin){
 	c.set_score(0);
 	pair<string,Competitor>mymap(c.get_name(),c);
 	map.insert(mymap);
-	a++;
-	if(a==2)
-		break;
+	break;
+	}
+//	a++;
+//	if(a==1)
+//		break;
 }
 
 
@@ -81,6 +84,9 @@ Treasure money(0,x_treas,0,0,money_value);
 
 auto it=map.find(name1);
 auto it2=map.find(name2);
+
+//cout<<map.at(it->first).get_name();
+//cout<<map.at(it2->first).get_name();
 //auto it2=it->second;
 
 //PLAYER 1'S RIDDLE
@@ -96,13 +102,14 @@ else cout<<"no cigar."<<endl;
 
 
 money_value=rand()%100000+150;
+Treasure money2(0,x_treas,0,0,money_value);
 //PLAYER 2'S RIDDLE
 cout<<"What color are eggs? (riddle)"<<endl;
 //string ans;
 cin>>ans;
 if(ans=="white" or ans=="White"){
-	    int score2=money.loot();
-		cout<<score2;
+	    int score2=money2.loot();
+	//	cout<<score2;
 		map.at(it2->first).set_score(score2);
 		cout<<"SCORE: "<<score2<<endl;
 }
