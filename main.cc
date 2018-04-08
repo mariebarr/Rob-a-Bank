@@ -42,7 +42,7 @@ int main(){
 
 //HOLD PLAYER 1 AND PLAYER 2'S DATA IN A HASH TABLE
 unordered_map<string,Competitor>map;
-cout<<"WELCOME TO ROB-A-BANK. THIS IS A 2 PLAYER RPG. ENTER YOUR NAMES TO START, DONE TO END."<<endl;
+cout<<"WELCOME TO ROB-A-BANK. THIS IS A 2 PLAYER RPG. ENTER YOUR NAMES TO START."<<endl;
 int a=0;
 while(cin){
 	//enter players name
@@ -57,8 +57,6 @@ while(cin){
 	}
 	a++;
 	if(a==1){ cout<<"PLAYER 2: "<<endl;
-	//string name;
-//	cout<<"PLAYER 2: "<<endl;
 	getline(cin,name2);
 
 	Competitor c;
@@ -68,9 +66,6 @@ while(cin){
 	map.insert(mymap);
 	break;
 	}
-//	a++;
-//	if(a==1)
-//		break;
 }
 
 
@@ -91,9 +86,6 @@ Treasure money(0,x_treas,0,0,money_value);
 auto it=map.find(name1);
 auto it2=map.find(name2);
 
-//cout<<map.at(it->first).get_name();
-//cout<<map.at(it2->first).get_name();
-//auto it2=it->second;
 
 //PLAYER 1'S RIDDLE
 cout<<"What color are eggs? (riddle)"<<endl;
@@ -111,7 +103,6 @@ money_value=rand()%100000+150;
 Treasure money2(0,x_treas,0,0,money_value);
 //PLAYER 2'S RIDDLE
 cout<<"What color are eggs? (riddle)"<<endl;
-//string ans;
 cin>>ans;
 if(ans=="white" or ans=="White"){
 	    int score2=money2.loot();
