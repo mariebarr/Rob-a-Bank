@@ -13,6 +13,12 @@ using namespace std;
 
 const int MaxTime = 120; //max time to rob bank is 2 min 
 
+string uppercaseify(string s) {    //function that uppercaseifies inputs so case will not affect outcome 
+	for(int i=0; i < s.size(); i++){
+		s.at(i) = toupper (s.at(i)); 
+	}
+	return s; 
+} 
 
 
 //int main(){
