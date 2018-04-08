@@ -1,3 +1,5 @@
+#include<string>
+#include<unordered_map>
 #include<ctime>
 #include<cmath>
 #include "head.h"
@@ -22,7 +24,43 @@ using namespace std;
   make_heap(scores.begin(),scores.end());
   cout<<"The max element of the heap is: "<<scores.front()<<endl;
   */
+//globals
+string name1,name2;
 int main(){
+
+//HOLD PLAYER 1 AND PLAYER 2'S DATA IN A HASH TABLE
+unordered_map<string,Competitor>map;
+cout<<"WELCOME TO ROB-A-BANK. THIS IS A 2 PLAYER RPG. ENTER YOUR NAMES TO START, DONE TO END."<<endl;
+int a=0;
+while(cin){
+	//enter players name
+	if(a==0){
+		cout<<"PLAYER 1: "<<endl;
+		getline(cin,name1);
+		Competitor c;
+		c.set_name(name1);
+		c.set_score(0);
+		pair<string,Competitor>mymap(c.get_name(),c);
+		map.insert(mymap);
+	//	continue;
+	}
+	else cout<<"PLAYER 2: "<<endl;
+	//string name;
+	getline(cin,name2);
+
+	Competitor c;
+	c.set_name(name2);
+	c.set_score(0);
+	pair<string,Competitor>mymap(c.get_name(),c);
+	map.insert(mymap);
+	a++;
+	if(a==2)
+		break;
+}
+
+
+
+
 srand(time(0));
 //place bank at 0,0. this will not change.
 Spot bank(0,0);
@@ -33,13 +71,36 @@ int money_value=rand()%100000+150;
 Treasure money(0,x_treas,0,0,money_value);
 
 //Spot robbers_pos(0,0);
+
+auto it=map.find(name1);
+auto it2=map.find(name2);
+//auto it2=it->second;
+
+//PLAYER 1'S RIDDLE
 cout<<"What color are eggs? (riddle)"<<endl;
 string ans;
 cin>>ans;
 if(ans=="white" or ans=="White"){
-	cout<<money.loot();
+	int score=money.loot();
+	map.at(it->first).set_score(score);
+	cout<<"SCORE: "<<score<<endl;
 }
 else cout<<"no cigar."<<endl;
+
+
+money_value=rand()%100000+150;
+//PLAYER 2'S RIDDLE
+cout<<"What color are eggs? (riddle)"<<endl;
+//string ans;
+cin>>ans;
+if(ans=="white" or ans=="White"){
+	    int score2=money.loot();
+		cout<<score2;
+		map.at(it2->first).set_score(score2);
+		cout<<"SCORE: "<<score2<<endl;
+}
+else cout<<"no cigar."<<endl;
+
 
 	
 /*-------------------GETAWAY PART------------------------------*/	
