@@ -5,7 +5,13 @@
 #include<cstdlib>
 #include<algorithm>
 #include<vector>
+#include<cmath>
 using namespace std;
+
+
+const int MaxTime = 120; //max time to rob bank is 2 min 
+
+
 
 //int main(){
 
@@ -28,6 +34,7 @@ srand(time(0));
 Spot bank(0,0);
 
 /*-------------------BANK PART---------------------------------*/
+int start_time = time(0); //time begins ticking at bank
 int x_treas=rand()%230+1;
 int money_value=rand()%100000+150;
 Treasure money(0,x_treas,0,0,money_value);
