@@ -1,3 +1,5 @@
+#include<string>
+#include<unordered_map>
 #include<vector>
 #include<iostream>
 #include<algorithm>
@@ -6,6 +8,27 @@
 using namespace std;
 const int MIN=0;
 const int MAX=99;
+
+//hold's PLAYER 1 AND PLAYER 2'S name and score (money count)
+struct Competitor {
+	string name;
+	int score=0;
+
+	void set_name(string new_name){
+		name=new_name;
+	}
+	void set_score(int new_score){
+		score=new_score;
+	}
+	string get_name(){
+		return name;
+	}
+	int get_score(){
+		return score;
+	}
+};
+
+
 //implement Spot class to hold location of bank, police, and getaway car
 class Spot{
 	private:

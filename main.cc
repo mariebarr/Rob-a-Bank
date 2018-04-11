@@ -1,3 +1,5 @@
+#include<string>
+#include<unordered_map>
 #include<ctime>
 #include<cmath>
 #include "head.h"
@@ -19,7 +21,7 @@ string uppercaseify(string s) {    //function that uppercaseifies inputs so case
 } 
 
 void die() { 
-	cout << "Not an option. You've been arrested." << endl;
+	cout << "Not an option. You've been arrested for ignorance." << endl;
 	exit(0); 
 } 
 
@@ -40,8 +42,47 @@ void die() {
   make_heap(scores.begin(),scores.end());
   cout<<"The max element of the heap is: "<<scores.front()<<endl;
   */
+//globals
+char c; 
+string name1,name2;
 int main(){
+<<<<<<< HEAD
 //srand(time(0));
+=======
+
+//HOLD PLAYER 1 AND PLAYER 2'S DATA IN A HASH TABLE
+unordered_map<string,Competitor>map;
+cout<<"WELCOME TO ROB-A-BANK. THIS IS A 2 PLAYER RPG. ENTER YOUR NAMES TO START."<<endl;
+int a=0;
+while(cin){
+	//enter players name
+	if(a==0){
+		cout<<"PLAYER 1: "<<endl;
+		getline(cin,name1);
+		Competitor c;
+		c.set_name(name1);
+		c.set_score(0);
+		pair<string,Competitor>mymap(c.get_name(),c);
+		map.insert(mymap);
+	}
+	a++;
+	if(a==1){ cout<<"PLAYER 2: "<<endl;
+	getline(cin,name2);
+
+	Competitor c;
+	c.set_name(name2);
+	c.set_score(0);
+	pair<string,Competitor>mymap(c.get_name(),c);
+	map.insert(mymap);
+	break;
+	}
+}
+
+
+
+
+srand(time(0));
+>>>>>>> 4c618998dc5351c112c1891a25755c36e1d83710
 //place bank at 0,0. this will not change.
 Spot bank(0,0);
 
@@ -53,19 +94,90 @@ Treasure money(0,x_treas,0,0,money_value);
 
 //Spot robbers_pos(0,0);
 
+<<<<<<< HEAD
 /*cout<<"What color are eggs? (riddle)"<<endl;
+=======
+auto it=map.find(name1);
+auto it2=map.find(name2);
+
+
+//PLAYER 1'S RIDDLE
+cout<<"What color are eggs? (riddle)"<<endl;
+>>>>>>> 4c618998dc5351c112c1891a25755c36e1d83710
 string ans;
 cin>>ans;
 if(ans=="white" or ans=="White"){
-	cout<<money.loot();
+	int score=money.loot();
+	map.at(it->first).set_score(score);
+	cout<<"SCORE: "<<score<<endl;
 }
 else cout<<"no cigar."<<endl;
 */ 
-cout << "WELCOME TO CASH ME ROBBIN" << endl; 
 cout << "LEVEL 1: SHALLOW FIN-ANCES" << endl; 
 cout << "YOUR FIRST TASK IS TO ROB A LOAN SHARK IN THE DEAD OF NIGHT. EASY, RIGHT?" << endl; 
-cout << "YOU WILL HAVE 1 MIN TO DO SO." << endl; 
+cout << "YOU WILL HAVE 2 MIN TO DO SO." << endl; 
 cout << "Press any character to begin" << endl; 
+cin >> c; 
+
+if(cin) {
+char choice; 
+int start_time = time(0); 
+cout << "THERE IS A LOCK ON THE DOOR. YOU DO YOU." << endl; 
+cout << "a) burn that baby off with thermite" << endl; 
+cout << "b) guess the combo" << endl; 
+cout << "c) clip the lock off with some industrial lock cutters" << endl; 
+
+	int current_time = time(0); 
+	if (choice !=a && choice !=b && choice !=c) die(); 
+	if(choice == 'a') { 
+		int time_left = MaxTime - current_time - 15; 
+		cout << "You got a chemical burn." << endl; 
+		cout << "You just lost 15s from grabbing your finger in pain."<<endl;
+		cout << "Move inside." << endl; 
+		cout << "Time left: " << time_left << "s" << endl; 
+		}
+	else if(choice == 'b') { 
+		cout << "
+		while(true) {
+		int current_time = time(0); 
+		cout << "Time left: "<< MaxTime - current_time << endl; 
+		if(current_time - start_time > MaxTime) { 
+			cout << "You were too slow. The allying loan shark gang caught you. YOU LOSE." << endl;
+			return 0; 
+		}
+
+		const int combo = 123; 
+		int guess_num = 0; 
+		cout << "Guess a 3 digit number" << endl;
+		cin >> guess_num; 
+		if(!cin) {
+			cout << "Not a number" << endl; 
+			return 0; 
+		}
+		if(guess_num == combo) {
+			cout << "That's the combo! Move inside." << endl; 
+			break; 
+		}
+	}
+}
+
+
+}	
+
+
+money_value=rand()%100000+150;
+Treasure money2(0,x_treas,0,0,money_value);
+//PLAYER 2'S RIDDLE
+cout<<"What color are eggs? (riddle)"<<endl;
+cin>>ans;
+if(ans=="white" or ans=="White"){
+	    int score2=money2.loot();
+	//	cout<<score2;
+		map.at(it2->first).set_score(score2);
+		cout<<"SCORE: "<<score2<<endl;
+}
+else cout<<"no cigar."<<endl;
+
 
 	
 /*-------------------GETAWAY PART------------------------------*/	
