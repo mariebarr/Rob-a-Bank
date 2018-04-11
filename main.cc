@@ -90,6 +90,43 @@ int main(){
 		cout << "b) guess the combo" << endl; 
 		cout << "c) clip the lock off with some industrial lock cutters" << endl; 
 
+<<<<<<< HEAD
+=======
+/*
+//PLAYER 1'S RIDDLE
+cout<<"What color are eggs? (riddle)"<<endl;
+>>>>>>> 4c618998dc5351c112c1891a25755c36e1d83710
+string ans;
+cin>>ans;
+if(ans=="white" or ans=="White"){
+	int score=money.loot();
+	map.at(it->first).set_score(score);
+	cout<<"SCORE: "<<score<<endl;
+}
+else cout<<"no cigar."<<endl;
+*/ 
+cout << "LEVEL 1: SHALLOW FIN-ANCES" << endl; 
+cout << "PLAYER 2: SIT TIGHT AND BE READY TO DRIVE." << endl; 
+cout << "PLAYER 1: YOUR FIRST TASK IS TO ROB A LOAN SHARK IN THE DEAD OF NIGHT. EASY, RIGHT?" << endl; 
+cout << "YOU WILL HAVE 2 MIN TO DO SO." << endl; 
+cout << "Press any character to begin" << endl; 
+cin >> c; 
+
+if(cin) {
+char choice; 
+int start_time = time(0); 
+cout << "LET'S ASSUME YOU BROKE INTO THE STORE, BUT SET OFF THE SECURITY ALARM. YOU SEE THE SAFE WITH THE MONIES. YOU..." << endl; 
+cout << "THE LOCAL ALLYING GANG IS ON THEIR WAY. YOU HAVE 2 MIN TO BREAK INTO THE SAFE. TIME STARTED WHEN YOU WERE READING" << endl; 
+cout << "a) burn it off with thermite" << endl; 
+cout << "b) guess the combo" << endl; 
+cout << "c) clip the lock off with some industrial lock cutters" << endl; 
+
+	int current_time = time(0); 
+	if (choice !='a' && choice !='b' && choice !='c') die(); 
+	if(choice == 'a') { 
+		cout << "You accidentally burn away some of the money." << endl; 
+		//collect da money
+>>>>>>> 230396e6d64d9e708be835e1855fe32a182976b8
 		money_value=rand()%100000+150;
 		Treasure money1(0,x_treas,0,0,money_value);
 		int score1=money1.loot();
@@ -133,14 +170,69 @@ int main(){
 			map.at(it1->first).set_score(score1);
 			cout << "Money collected: " << "$" <<score1  << endl; //fix to actual
 		}
+<<<<<<< HEAD
 	}	
 
+=======
+	}
+}
+	else if(choice == 'c') cout << "Money collected: " << "$" << amount  << endl; //fix to actual
+
+}	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+money_value=rand()%100000+150;
+Treasure money2(0,x_treas,0,0,money_value);
+//PLAYER 2'S RIDDLE
+cout<<"What color are eggs? (riddle)"<<endl;
+cin>>ans;
+if(ans=="white" or ans=="White"){
+	    int score2=money2.loot();
+	//	cout<<score2;
+		map.at(it2->first).set_score(score2);
+		cout<<"SCORE: "<<score2<<endl;
+}
+else cout<<"no cigar."<<endl;
+>>>>>>> 230396e6d64d9e708be835e1855fe32a182976b8
 
 	
 
 /*-------------------GETAWAY PART------------------------------*/	
 
+<<<<<<< HEAD
 //PLAYER 2's PART
+=======
+cout << "PLAYER 2: THE GANG IS STILL COMING. YOU MUST NAVIGATE THROUGH THE CITY MOST EFFICIENTYLY." << endl; 
+cout << "YOU HAVE 2 MIN." << endl; 
+cout << "Press any character to begin" << endl;
+cin >> c; 
+
+if(cin) {
+	int start_time = 0; 
+	char choice; 
+	cout << "YOU ARE DRIVING. ENTER LETTERS a, b, c TO PICK YOUR ROUTE." << endl;
+	cout << "a) left" << endl;
+	cout << "b) right" << endl;
+	cout << "c) straight" << endl; 
+	cin >> choice; 
+
+	if(choice == 'a') {} 
+} 
+
+>>>>>>> 230396e6d64d9e708be835e1855fe32a182976b8
 
 //if riddle is solved...
 cout<<"Congratulations, you are a riddlemaster. Continue to the getaway car."<<endl;
