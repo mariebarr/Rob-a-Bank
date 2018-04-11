@@ -25,22 +25,6 @@ void die() {
 	exit(0); 
 } 
 
-
-/*
-
-//THE HEAP
-vector<int>scores;
-  int num;
-  cout<<"Enter numbers into the heap (-999 to end): "<<endl;
-  while(cin){
-  cin>>num;
-  if(num==-999)
-  break;
-  scores.push_back(num);
-  }
-  make_heap(scores.begin(),scores.end());
- // cout<<"The max element of the heap is: "<<scores.front()<<endl;
-  */
 //globals
 char c; 
 string name1,name2;
