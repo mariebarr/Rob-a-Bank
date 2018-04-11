@@ -114,7 +114,8 @@ if(ans=="white" or ans=="White"){
 else cout<<"no cigar."<<endl;
 */ 
 cout << "LEVEL 1: SHALLOW FIN-ANCES" << endl; 
-cout << "YOUR FIRST TASK IS TO ROB A LOAN SHARK IN THE DEAD OF NIGHT. EASY, RIGHT?" << endl; 
+cout << "PLAYER 2: SIT TIGHT AND BE READY TO DRIVE." << endl; 
+cout << "PLAYER 1: YOUR FIRST TASK IS TO ROB A LOAN SHARK IN THE DEAD OF NIGHT. EASY, RIGHT?" << endl; 
 cout << "YOU WILL HAVE 2 MIN TO DO SO." << endl; 
 cout << "Press any character to begin" << endl; 
 cin >> c; 
@@ -123,7 +124,7 @@ if(cin) {
 char choice; 
 int start_time = time(0); 
 cout << "LET'S ASSUME YOU BROKE INTO THE STORE, BUT SET OFF THE SECURITY ALARM. YOU SEE THE SAFE WITH THE MONIES. YOU..." << endl; 
-cout << "THE LOCAL ALLYING GANG IS ON THEIR WAY. YOU HAVE 2 MIN TO BREAK INTO THE SAFE." << endl; 
+cout << "THE LOCAL ALLYING GANG IS ON THEIR WAY. YOU HAVE 2 MIN TO BREAK INTO THE SAFE. TIME STARTED WHEN YOU WERE READING" << endl; 
 cout << "a) burn it off with thermite" << endl; 
 cout << "b) guess the combo" << endl; 
 cout << "c) clip the lock off with some industrial lock cutters" << endl; 
@@ -173,6 +174,18 @@ cout << "c) clip the lock off with some industrial lock cutters" << endl;
 }	
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 /*
 money_value=rand()%100000+150;
 Treasure money2(0,x_treas,0,0,money_value);
@@ -191,6 +204,23 @@ else cout<<"no cigar."<<endl;
 	
 /*-------------------GETAWAY PART------------------------------*/	
 	
+
+cout << "PLAYER 2: THE GANG IS STILL COMING. YOU MUST NAVIGATE THROUGH THE CITY MOST EFFICIENTYLY." << endl; 
+cout << "YOU HAVE 2 MIN." << endl; 
+cout << "Press any character to begin" << endl;
+cin >> c; 
+
+if(cin) {
+	int start_time = 0; 
+	char choice; 
+	cout << "YOU ARE DRIVING. ENTER LETTERS a, b, c TO PICK YOUR ROUTE." << endl;
+	cout << "a) left" << endl;
+	cout << "b) right" << endl;
+	cout << "c) straight" << endl; 
+	cin >> choice; 
+
+	if(choice == 'a') {} 
+} 
 
 
 //if riddle is solved...
