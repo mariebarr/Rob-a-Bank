@@ -18,6 +18,12 @@ string uppercaseify(string s) {    //function that uppercaseifies inputs so case
 	return s; 
 } 
 
+void die() { 
+	cout << "Not an option. You've been arrested." << endl;
+	exit(0); 
+} 
+
+
 
 //int main(){
 
@@ -35,7 +41,7 @@ string uppercaseify(string s) {    //function that uppercaseifies inputs so case
   cout<<"The max element of the heap is: "<<scores.front()<<endl;
   */
 int main(){
-srand(time(0));
+//srand(time(0));
 //place bank at 0,0. this will not change.
 Spot bank(0,0);
 
@@ -46,13 +52,20 @@ int money_value=rand()%100000+150;
 Treasure money(0,x_treas,0,0,money_value);
 
 //Spot robbers_pos(0,0);
-cout<<"What color are eggs? (riddle)"<<endl;
+
+/*cout<<"What color are eggs? (riddle)"<<endl;
 string ans;
 cin>>ans;
 if(ans=="white" or ans=="White"){
 	cout<<money.loot();
 }
 else cout<<"no cigar."<<endl;
+*/ 
+cout << "WELCOME TO CASH ME ROBBIN" << endl; 
+cout << "LEVEL 1: SHALLOW FIN-ANCES" << endl; 
+cout << "YOUR FIRST TASK IS TO ROB A LOAN SHARK IN THE DEAD OF NIGHT. EASY, RIGHT?" << endl; 
+cout << "YOU WILL HAVE 1 MIN TO DO SO." << endl; 
+cout << "Press any character to begin" << endl; 
 
 	
 /*-------------------GETAWAY PART------------------------------*/	
