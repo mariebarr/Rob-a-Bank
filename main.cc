@@ -46,7 +46,7 @@ void die() {
 char c; 
 string name1,name2;
 int main(){
-<<<<<<< HEAD
+<<<<<<< HEAD 
 //srand(time(0));
 =======
 
@@ -82,7 +82,7 @@ while(cin){
 
 
 srand(time(0));
->>>>>>> 4c618998dc5351c112c1891a25755c36e1d83710
+>>>>>>> 4c618998dc5351c112c1891a25755c36e1d83710 // que
 //place bank at 0,0. this will not change.
 Spot bank(0,0);
 
@@ -122,22 +122,20 @@ cin >> c;
 if(cin) {
 char choice; 
 int start_time = time(0); 
-cout << "THERE IS A LOCK ON THE DOOR. YOU DO YOU." << endl; 
-cout << "a) burn that baby off with thermite" << endl; 
+cout << "LET'S ASSUME YOU BROKE INTO THE STORE, BUT SET OFF THE SECURITY ALARM. YOU SEE THE SAFE WITH THE MONIES. YOU..." << endl; 
+COUT << "THE LOCAL ALLYING GANG IS ON THEIR WAY. YOU HAVE 2 MIN TO BREAK INTO THE SAFE." << endl; 
+cout << "a) burn it off with thermite" << endl; 
 cout << "b) guess the combo" << endl; 
 cout << "c) clip the lock off with some industrial lock cutters" << endl; 
 
 	int current_time = time(0); 
 	if (choice !=a && choice !=b && choice !=c) die(); 
 	if(choice == 'a') { 
-		int time_left = MaxTime - current_time - 15; 
-		cout << "You got a chemical burn." << endl; 
-		cout << "You just lost 15s from grabbing your finger in pain."<<endl;
-		cout << "Move inside." << endl; 
-		cout << "Time left: " << time_left << "s" << endl; 
+		cout << "You accidentally burn away some of the money." << endl; 
+		cout << "Money collected: " << "$" << amount  << endl; //fix to actual
 		}
 	else if(choice == 'b') { 
-		cout << "
+		cout << "Guess a three digit number. You have till time runs out." << endl; 
 		while(true) {
 		int current_time = time(0); 
 		cout << "Time left: "<< MaxTime - current_time << endl; 
@@ -148,21 +146,22 @@ cout << "c) clip the lock off with some industrial lock cutters" << endl;
 
 		const int combo = 123; 
 		int guess_num = 0; 
-		cout << "Guess a 3 digit number" << endl;
 		cin >> guess_num; 
 		if(!cin) {
 			cout << "Not a number" << endl; 
 			return 0; 
 		}
 		if(guess_num == combo) {
-			cout << "That's the combo! Move inside." << endl; 
+			cout << "That's the combo!" << endl;
+			cout << "Money collected: " << "$" << amount  << endl; //fix to actual
 			break; 
 		}
 	}
 }
-
+	else if(choice == 'c') cout << "Money collected: " << "$" << amount  << endl; //fix to actual
 
 }	
+
 
 
 money_value=rand()%100000+150;
