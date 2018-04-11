@@ -46,9 +46,9 @@ void die() {
 char c; 
 string name1,name2;
 int main(){
-<<<<<<< HEAD 
+//<<<<<<< HEAD 
 //srand(time(0));
-=======
+//=======
 
 //HOLD PLAYER 1 AND PLAYER 2'S DATA IN A HASH TABLE
 unordered_map<string,Competitor>map;
@@ -82,7 +82,7 @@ while(cin){
 
 
 srand(time(0));
->>>>>>> 4c618998dc5351c112c1891a25755c36e1d83710 // que
+//>>>>>>> 4c618998dc5351c112c1891a25755c36e1d83710 // que
 //place bank at 0,0. this will not change.
 Spot bank(0,0);
 
@@ -94,13 +94,13 @@ Treasure money(0,x_treas,0,0,money_value);
 
 //Spot robbers_pos(0,0);
 
-<<<<<<< HEAD
-/*cout<<"What color are eggs? (riddle)"<<endl;
-=======
+//<<<<<<< HEAD
+//cout<<"What color are eggs? (riddle)"<<endl;
+//=======
 auto it=map.find(name1);
 auto it2=map.find(name2);
 
-
+/*
 //PLAYER 1'S RIDDLE
 cout<<"What color are eggs? (riddle)"<<endl;
 >>>>>>> 4c618998dc5351c112c1891a25755c36e1d83710
@@ -123,7 +123,7 @@ if(cin) {
 char choice; 
 int start_time = time(0); 
 cout << "LET'S ASSUME YOU BROKE INTO THE STORE, BUT SET OFF THE SECURITY ALARM. YOU SEE THE SAFE WITH THE MONIES. YOU..." << endl; 
-COUT << "THE LOCAL ALLYING GANG IS ON THEIR WAY. YOU HAVE 2 MIN TO BREAK INTO THE SAFE." << endl; 
+cout << "THE LOCAL ALLYING GANG IS ON THEIR WAY. YOU HAVE 2 MIN TO BREAK INTO THE SAFE." << endl; 
 cout << "a) burn it off with thermite" << endl; 
 cout << "b) guess the combo" << endl; 
 cout << "c) clip the lock off with some industrial lock cutters" << endl; 
@@ -132,7 +132,12 @@ cout << "c) clip the lock off with some industrial lock cutters" << endl;
 	if (choice !=a && choice !=b && choice !=c) die(); 
 	if(choice == 'a') { 
 		cout << "You accidentally burn away some of the money." << endl; 
-		cout << "Money collected: " << "$" << amount  << endl; //fix to actual
+		//collect da money
+		money_value=rand()%100000+150;
+		Treasure money2(0,x_treas,0,0,money_value);
+		int score1=money2.loot();
+		map.at(it1->first).set_score(score1);
+		cout << "Money collected: " << "$" << score1 << endl; //fix to actual
 		}
 	else if(choice == 'b') { 
 		cout << "Guess a three digit number. You have till time runs out." << endl; 
@@ -163,7 +168,7 @@ cout << "c) clip the lock off with some industrial lock cutters" << endl;
 }	
 
 
-
+/*
 money_value=rand()%100000+150;
 Treasure money2(0,x_treas,0,0,money_value);
 //PLAYER 2'S RIDDLE
@@ -177,7 +182,7 @@ if(ans=="white" or ans=="White"){
 }
 else cout<<"no cigar."<<endl;
 
-
+*/
 	
 /*-------------------GETAWAY PART------------------------------*/	
 	
