@@ -97,7 +97,7 @@ Treasure money(0,x_treas,0,0,money_value);
 //<<<<<<< HEAD
 //cout<<"What color are eggs? (riddle)"<<endl;
 //=======
-auto it=map.find(name1);
+auto it1=map.find(name1);
 auto it2=map.find(name2);
 
 /*
@@ -134,8 +134,8 @@ cout << "c) clip the lock off with some industrial lock cutters" << endl;
 		cout << "You accidentally burn away some of the money." << endl; 
 		//collect da money
 		money_value=rand()%100000+150;
-		Treasure money2(0,x_treas,0,0,money_value);
-		int score1=money2.loot();
+		Treasure money1(0,x_treas,0,0,money_value);
+		int score1=money1.loot();
 		map.at(it1->first).set_score(score1);
 		cout << "Money collected: " << "$" << score1 << endl; //fix to actual
 		}
@@ -158,7 +158,12 @@ cout << "c) clip the lock off with some industrial lock cutters" << endl;
 		}
 		if(guess_num == combo) {
 			cout << "That's the combo!" << endl;
-			cout << "Money collected: " << "$" << amount  << endl; //fix to actual
+			//collect money
+			money_value=rand()%100000+150;
+			Treasure money2(0,x_treas,0,0,money_value);
+			int score2=money2.loot();
+			map.at(it2->first).set_score(score2);
+			cout << "Money collected: " << "$" << score2 << endl; //fix to actual
 			break; 
 		}
 	}
