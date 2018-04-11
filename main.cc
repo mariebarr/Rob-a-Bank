@@ -129,7 +129,7 @@ cout << "b) guess the combo" << endl;
 cout << "c) clip the lock off with some industrial lock cutters" << endl; 
 
 	int current_time = time(0); 
-	if (choice !=a && choice !=b && choice !=c) die(); 
+	if (choice !='a' && choice !='b' && choice !='c') die(); 
 	if(choice == 'a') { 
 		cout << "You accidentally burn away some of the money." << endl; 
 		//collect da money
