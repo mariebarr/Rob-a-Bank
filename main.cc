@@ -26,10 +26,10 @@ void die() {
 } 
 
 
-
+/*
 
 //THE HEAP
-/*vector<int>scores;
+vector<int>scores;
   int num;
   cout<<"Enter numbers into the heap (-999 to end): "<<endl;
   while(cin){
@@ -39,7 +39,7 @@ void die() {
   scores.push_back(num);
   }
   make_heap(scores.begin(),scores.end());
-  cout<<"The max element of the heap is: "<<scores.front()<<endl;
+ // cout<<"The max element of the heap is: "<<scores.front()<<endl;
   */
 //globals
 char c; 
@@ -185,5 +185,25 @@ int getaway_veloc=rand()%90+65;
 //time when they meet (are caught)
 double time_caught= abs(getaway_car.distance()-police_car.distance())/(police_veloc+getaway_veloc);
 
+//END OF PROGRAM. OUTPUT FINAL RESULTS.
+//THE HEAP
+vector<int>scores;
+scores.push_back(map.at(it1->first).get_score());
+scores.push_back(map.at(it2->first).get_score());
+make_heap(scores.begin(),scores.end());
 
+//store winner. scores.front() is top score from the heap!
+string winner;
+int winner_score=scores.front();
+if(map.at(it1->first).get_score()==winner_score){
+	winner=map.at(it1->first).get_name();
+	winner_score=map.at(it1->first).get_score();
+}
+else {
+	winner=map.at(it2->first).get_name();
+	winner_score=map.at(it2->first).get_score();
+}
+cout<<"The winner is "<<winner<<endl;
+cout<<"with a score of: "<<winner_score<<endl;
+cout<<"GAME OVER."<<endl;
 }
