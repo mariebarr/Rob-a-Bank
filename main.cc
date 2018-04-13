@@ -117,7 +117,7 @@ cout << "c) clip the lock off with some industrial lock cutters" << endl;
 		int score1=money1.loot();
 
 		int current_time = time(0); 
-		if (choice !=a && choice !=b && choice !=c) die(); 
+		if (choice !='a' && choice !='b' && choice !='c') die(); 
 		if(choice == 'a') { 
 			cout << "You accidentally burn away some of the money." << endl; 
 			//collect da money
@@ -160,29 +160,7 @@ cout << "c) clip the lock off with some industrial lock cutters" << endl;
 
 /*-------------------GETAWAY PART------------------------------*/	
 
-//PLAYER 2's PART
-cout << "PLAYER 2: THE GANG IS STILL COMING. YOU MUST NAVIGATE THROUGH THE CITY MOST EFFICIENTYLY." << endl; 
-cout << "YOU HAVE 2 MIN." << endl; 
-cout << "Press any character to begin" << endl;
-cin >> c; 
-
-if(cin) {
-	int start_time = 0; 
-	char choice; 
-	cout << "YOU ARE DRIVING. ENTER LETTERS a, b, c TO PICK YOUR ROUTE." << endl;
-	cout << "a) left" << endl;
-	cout << "b) right" << endl;
-	cout << "c) straight" << endl; 
-	cin >> choice; 
-
-	if(choice == 'a') {} 
-} 
-
-
-//if riddle is solved...
-cout<<"Congratulations, you are a riddlemaster. Continue to the getaway car."<<endl;
-
-//srand(time(0));
+//DECLARATION OF IMPORTANT VARIABLES.
 //generate a random velocity btwn 50 and 75mph for the police car
 int police_veloc=rand()%75+50;
 
@@ -198,9 +176,37 @@ Spot getaway_car(0,0);
 //generates random velocity btwn 65 and 90
 int getaway_veloc=rand()%90+65;
 
-//START QUESTIONS/RIDDLES HERE
-//IF time>=time_caught....die...police caught you
 
+//PLAYER 2's PART
+cout << "PLAYER 2: THE GANG IS STILL COMING. YOU MUST NAVIGATE THROUGH THE CITY MOST EFFICIENTLY." << endl; 
+cout << "YOU HAVE 2 MIN." << endl; 
+cout << "Press any character to begin" << endl;
+cin >> c; 
+
+if(cin) {
+	int start_time = 0; 
+	char choice; 
+	cout << "YOU ARE DRIVING. ENTER LETTERS a, b, c TO PICK YOUR ROUTE." << endl;
+	cout << "a) left" << endl;
+	cout << "b) right" << endl;
+	cout << "c) straight" << endl; 
+	cin >> choice; 
+
+	if(choice == 'a') {
+		cout<<"You ran into a pedestrian. The cops catch you. Go to jail. Game over."<<endl;
+	} 
+	if(choice=='b'){
+		cout<<"You encounter steep hills. Bye bye velocity."<<endl;
+		getaway_veloc-=20;
+	}
+} 
+
+
+//if riddle is solved...
+cout<<"Congratulations, you are a riddlemaster. Continue to the getaway car."<<endl;
+
+
+//IF time>=time_caught....die...police caught you
 
 
 //time when they meet (are caught)
@@ -227,4 +233,5 @@ else {
 cout<<"The winner is "<<winner<<endl;
 cout<<"with a score of: "<<winner_score<<endl;
 cout<<"GAME OVER."<<endl;
+}
 }
