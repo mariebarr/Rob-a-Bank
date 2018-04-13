@@ -113,7 +113,6 @@ int main() {
 	//have the user cin an answer
 	char choice;
 	cin >> choice;
-
 	int current_time = time(0);
 	MaxTime = time(0) + 120;
 	if (choice != 'a' && choice != 'b' && choice != 'c') die();
@@ -155,6 +154,8 @@ int main() {
 		map.at(it1->first).set_score(score1);
 		cout << "Money collected: " << "$" << score1  << endl; //fix to actual
 	}
+	current_time = current_time - start_time;//megan fix 
+	cout << "Time completed in: " << MaxTime - current_time - 120 << endl; 
 //	}
 //}
 
@@ -201,11 +202,12 @@ int main() {
 		cout << "You ran into a pedestrian. You wait 1 min for him/her/it to cross." << endl;
 		cout << "Time left: " << time_left - 60 << endl;
 	}
-	if (choice == 'b') {
+	else if (choice == 'b') {
 		cout << "You encounter steep hills. Bye bye velocity." << endl;
-		getaway_veloc -= 20;
+		getaway_veloc -= 20; 
+		cout << getaway_veloc << endl; 
 	}
-	if (choice == 'c') {
+	else if (choice == 'c') {
 		cout << "Still deciding" << endl;
 	}
 //}
