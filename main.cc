@@ -68,7 +68,7 @@ int main(){
 	int start_time = time(0); //time begins ticking at bank
 	int x_treas=rand()%230+1;
 	int money_value=rand()%100000+150;
-	Treasure money(0,x_treas,0,0,money_value);
+	Treasure money1(0,x_treas,0,0,money_value);
 
 
 	auto it1=map.find(name1);
@@ -78,9 +78,9 @@ int main(){
 	cout << "LEVEL 1: SHALLOW FIN-ANCES" << endl; 
 	cout << "YOUR FIRST TASK IS TO ROB A LOAN SHARK IN THE DEAD OF NIGHT. EASY, RIGHT?" << endl; 
 	cout << "YOU WILL HAVE 2 MIN TO DO SO." << endl; 
-	cout << "Press any character to begin" << endl; 
-	cin >> c; 
-
+//	cout << "Press any character to begin" << endl; 
+//	cin >> c; 
+/*
 	if(cin) {
 		char choice; 
 		int start_time = time(0); 
@@ -97,30 +97,26 @@ cout << "PLAYER 1: YOUR FIRST TASK IS TO ROB A LOAN SHARK IN THE DEAD OF NIGHT. 
 cout << "YOU WILL HAVE 2 MIN TO DO SO." << endl; 
 cout << "Press any character to begin" << endl; 
 cin >> c; 
-
-if(cin) {
-char choice; 
-int start_time = time(0); 
+*/
+//if(cin) {
+//char choice=c; 
+//int start_time = time(0); 
 cout << "LET'S ASSUME YOU BROKE INTO THE STORE, BUT SET OFF THE SECURITY ALARM. YOU SEE THE SAFE WITH THE MONIES. YOU..." << endl; 
 cout << "THE LOCAL ALLYING GANG IS ON THEIR WAY. YOU HAVE 2 MIN TO BREAK INTO THE SAFE. TIME STARTED WHEN YOU WERE READING" << endl; 
 cout << "a) burn it off with thermite" << endl; 
 cout << "b) guess the combo" << endl; 
 cout << "c) clip the lock off with some industrial lock cutters" << endl; 
-
-	int current_time = time(0); 
-	if (choice !='a' && choice !='b' && choice !='c') die(); 
-	if(choice == 'a') { 
-		cout << "You accidentally burn away some of the money." << endl; 
-		//collect da money
-		money_value=rand()%100000+150;
-		Treasure money1(0,x_treas,0,0,money_value);
-		int score1=money1.loot();
+	
+	//have the user cin an answer
+	char choice;
+	cin>>choice;	
 
 		int current_time = time(0); 
 		if (choice !='a' && choice !='b' && choice !='c') die(); 
 		if(choice == 'a') { 
 			cout << "You accidentally burn away some of the money." << endl; 
 			//collect da money
+			int score1=money1.loot();
 			//set score to 30% of score would have gotten
 			map.at(it1->first).set_score(.70*score1);
 			cout << "Money collected: " << "$" << score1 << endl; //fix to actual
@@ -145,6 +141,7 @@ cout << "c) clip the lock off with some industrial lock cutters" << endl;
 				if(guess_num == combo) {
 					cout << "That's the combo!" << endl;
 					//collect money
+					int score1=money1.loot();
 					map.at(it1->first).set_score(score1);
 					cout << "Money collected: " << "$" << score1 << endl; //fix to actual
 					break; 
@@ -152,11 +149,12 @@ cout << "c) clip the lock off with some industrial lock cutters" << endl;
 			}
 		}
 		else if(choice == 'c'){
+			int score1=money1.loot();
 			map.at(it1->first).set_score(score1);
 			cout << "Money collected: " << "$" <<score1  << endl; //fix to actual
 		}
-	}	
-}	
+//	}	
+//}	
 
 /*-------------------GETAWAY PART------------------------------*/	
 
@@ -180,12 +178,13 @@ int getaway_veloc=rand()%90+65;
 //PLAYER 2's PART
 cout << "PLAYER 2: THE GANG IS STILL COMING. YOU MUST NAVIGATE THROUGH THE CITY MOST EFFICIENTLY." << endl; 
 cout << "YOU HAVE 2 MIN." << endl; 
-cout << "Press any character to begin" << endl;
-cin >> c; 
+//cout << "Press any character to begin" << endl;
+//cin >> c; 
 
-if(cin) {
-	int start_time = 0; 
-	char choice; 
+ //if(cin) {
+//	int start_time = 0; 
+	start_time=time(0);
+	//char choice; 
 	cout << "YOU ARE DRIVING. ENTER LETTERS a, b, c TO PICK YOUR ROUTE." << endl;
 	cout << "a) left" << endl;
 	cout << "b) right" << endl;
@@ -199,7 +198,7 @@ if(cin) {
 		cout<<"You encounter steep hills. Bye bye velocity."<<endl;
 		getaway_veloc-=20;
 	}
-} 
+//} 
 
 
 //if riddle is solved...
@@ -233,5 +232,5 @@ else {
 cout<<"The winner is "<<winner<<endl;
 cout<<"with a score of: "<<winner_score<<endl;
 cout<<"GAME OVER."<<endl;
-}
+
 }
