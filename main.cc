@@ -145,9 +145,13 @@ int main() {
 
 	/*-------------------GETAWAY PART------------------------------*/
 
+//Player 2 starts w/ player 1's ending score
+//int score2=score1;
+map.at(it2->first).set_score(map.at(it1->first).get_score());
+int score2=map.at(it2->first).get_score();
 //DECLARATION OF IMPORTANT VARIABLES.
 //generate a random velocity btwn 50 and 75mph for the police car
-	int police_veloc = rand() % 75 + 50;
+	int police_veloc = rand() % 100 + 75;
 
 //1 dimensional world (y is always 0)
 //place the police car somewhere initially
@@ -163,6 +167,9 @@ int main() {
 
 //time when they meet (are caught) 
 	double time_caught = abs((getaway_car.distance() - police_car.distance()) / (police_veloc - getaway_veloc));
+
+	//FOR ME
+	//	cout<<time_caught;
 //PLAYER 2's PART
 	cout << "PLAYER 2: THE GANG IS STILL COMING. YOU MUST NAVIGATE THROUGH THE CITY MOST EFFICIENTLY." << endl;
 	cout << "YOU HAVE 2 MIN." << endl;
@@ -181,33 +188,44 @@ int main() {
 		int escape_time = MaxTime-current_time; 
 		cout << "You ran into a pedestrian. You wait 1 min for him/her/it to cross." << endl;
 		cout << "You have " << escape_time - 60 << "s to escape." << endl;
-		cout << "The gang has " << time_caught <<"s to catch you." << endl; 
+	//	cout << "The gang has " << time_caught <<"s to catch you." << endl; 
 		if(double(escape_time-60) <= time_caught) {
 			cout << "Sorry dude, the gang overtook you. GAME OVER." << endl; 
+			map.at(it2->first).set_score(0);
 	}
-	else if(double(escape_time-60) > time_caught) cout << "You escaped the gang! LEVEL 1 COMPLETE." << endl;
+	else if(double(escape_time-60) > time_caught)
+		cout << "You escaped the gang! Plus 50 for being awesome."<<endl;// LEVEL 1 COMPLETE." << endl;
+		map.at(it2->first).set_score(score2+50);
 	}
 	else if (choice == 'b') {
 		cout << "You encounter steep hills. Bye bye velocity." << endl;
 		getaway_veloc -= 20; 
 		cout << "Your speed is: " << getaway_veloc <<" m/s" << endl; 
-		cout << "The gang is travelling at: " << time_caught<< "m/s" << endl;
-		if(getaway_veloc <= time_caught){
+	//	cout << "The gang is travelling at: " << time_caught<< "m/s" << endl;
+		if(current_time <= time_caught){
 			cout << "Sorry dude, the gang overtook you. GAME OVER." << endl;
+			map.at(it2->first).set_score(0);
 			exit(0); 
 		}
-		else cout << "You escaped the gang! LEVEL 1 COMPLETE." << endl; 
+		else{
+			cout << "You escaped the gang!"<<endl; // LEVEL 1 COMPLETE." << endl; 
+			map.at(it2->first).set_score(score2+10);
+		}
 	}
+
 	else if (choice == 'c') {
 		cout << "You convieniently found a highway. Your speed has been increased by 20 m/s." << endl;
 		getaway_veloc += 20; 
 		cout << "Your speed is: " << getaway_veloc << " m/s" << endl; 
-		cout << "The gang is travelling at: " << time_caught << "m/s" << endl;
-		if(getaway_veloc <= time_caught){
+	//	cout << "The gang is travelling at: " << time_caught << "m/s" << endl;
+		if(current_time <= time_caught){
 			cout << "Sorry dude, the gang overtook you. GAME OVER." << endl;
 			exit(0); 
 		}
-		else cout << "You escaped the gang! LEVEL 1 COMPLETE." << endl; 
+		else{
+			cout << "You escaped the gang!"<<endl; //LEVEL 1 COMPLETE." << endl; 
+			//no update to score b/c taking a highway requires no skillz
+		}
 	}
 	
 //}
