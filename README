@@ -1,17 +1,17 @@
 /*-----------------ROB-A-BANK--------------*/
 
-1.	This is a 2 player rpg game where both players are robbers. Each player will
-try to steal more money than the other, and whoever steals the most without
-getting caught at the end of the game wins. 
+1.	This is a 2 player rpg game for robbing a bank. Player 1 is a robber and Player 2 is a
+getaway driver.
+	Each player will try to steal more money than the other, and whoever steals the most without
+getting caught at the end wins.
 
-2.	The players will answer riddles in order to steal the money, and if they
-answer correctly the money is theirs. However, they still need to escape the
-cops. The getaway car is waiting for them outside the bank, and the police are
+2.	The players will answer riddles/ scenarios in order to steal the money or
+get away from the cops, and if they answer correctly the money is theirs. 
+However, they still need to escape thecops.
+	The getaway car is waiting for them outside the bank, and the police are
 a random distance away. Each car has a random velocity, and if the cops catch
 up with the robbers before the game times out, they lose. If the robbers make
 it away from the cops before time ends, they win and get to keep their money.
 
-3.	If the robber is caught, he/she goes to jail and automatically loses.
-//OR-after one bank robbery (level 1/2/or 3, the robber gets to hide their
-money and keeps it even though he went to jail?...maybe more complicated, but
-fun). The player with the most money at the end wins!
+3.	If the player is caught, he/she goes to jail and automatically loses. 
+The player with the most money at the end wins!
