@@ -91,10 +91,11 @@ int main() {
 	cout << "c) clip the lock off with some industrial lock cutters" << endl;
 
 	//have the user cin an answer
+	
+	MaxTime = time(0) + 120;
 	char choice;
 	cin >> choice;
-	int current_time = time(0);
-	MaxTime = time(0) + 120;
+	int current_time = time(0); 
 	if(current_time > MaxTime){
 		cout << "You took too long to decide. The gang has caught you. GAME OVER." << endl; 
 		exit(0); 
@@ -184,16 +185,31 @@ int main() {
 		if(double(escape_time-60) <= time_caught) {
 			cout << "Sorry dude, the gang overtook you. GAME OVER." << endl; 
 	}
-		else if(double(escape_time-60) > time_caught) cout << "You escaped the gang! LEVEL 1 COMPLETE." << endl;
+	else if(double(escape_time-60) > time_caught) cout << "You escaped the gang! LEVEL 1 COMPLETE." << endl;
+	}
 	else if (choice == 'b') {
 		cout << "You encounter steep hills. Bye bye velocity." << endl;
 		getaway_veloc -= 20; 
-		cout << getaway_veloc << endl; 
+		cout << "Your speed is: " << getaway_veloc <<" m/s" << endl; 
+		cout << "The gang is travelling at: " << time_caught<< "m/s" << endl;
+		if(getaway_veloc <= time_caught){
+			cout << "Sorry dude, the gang overtook you. GAME OVER." << endl;
+			exit(0); 
+		}
+		else cout << "You escaped the gang! LEVEL 1 COMPLETE." << endl; 
 	}
 	else if (choice == 'c') {
-		cout << "Still deciding" << endl;
+		cout << "You convieniently found a highway. Your speed has been increased by 20 m/s." << endl;
+		getaway_veloc += 20; 
+		cout << "Your speed is: " << getaway_veloc << " m/s" << endl; 
+		cout << "The gang is travelling at: " << time_caught << "m/s" << endl;
+		if(getaway_veloc <= time_caught){
+			cout << "Sorry dude, the gang overtook you. GAME OVER." << endl;
+			exit(0); 
+		}
+		else cout << "You escaped the gang! LEVEL 1 COMPLETE." << endl; 
 	}
-	}
+	
 //}
 
 
