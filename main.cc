@@ -62,7 +62,7 @@ int main() {
 
 
 
-	srand(time(0));
+	//srand(time(0));
 	Spot bank(0, 0);
 
 	/*-------------------BANK PART---------------------------------*/
@@ -81,28 +81,8 @@ int main() {
 	cout << "LEVEL 1: SHALLOW FIN-ANCES" << endl;
 	cout << "YOUR FIRST TASK IS TO ROB A LOAN SHARK IN THE DEAD OF NIGHT. EASY, RIGHT?" << endl;
 	cout << "YOU WILL HAVE 2 MIN TO DO SO." << endl;
-//	cout << "Press any character to begin" << endl;
-//	cin >> c;
-	/*
-		if(cin) {
-			char choice;
-			int start_time = time(0);
-			cout << "LET'S ASSUME YOU BROKE INTO THE STORE, BUT SET OFF THE SECURITY ALARM. YOU SEE THE SAFE WITH THE MONIES. YOU..." << endl;
-			cout << "THE LOCAL ALLYING GANG IS ON THEIR WAY. YOU HAVE 2 MIN TO BREAK INTO THE SAFE." << endl;
-			cout << "a) burn it off with thermite" << endl;
-			cout << "b) guess the combo" << endl;
-			cout << "c) clip the lock off with some industrial lock cutters" << endl;
 
 
-	cout << "LEVEL 1: SHALLOW FIN-ANCES" << endl;
-	cout << "PLAYER 2: SIT TIGHT AND BE READY TO DRIVE." << endl;
-	cout << "PLAYER 1: YOUR FIRST TASK IS TO ROB A LOAN SHARK IN THE DEAD OF NIGHT. EASY, RIGHT?" << endl;
-	cout << "YOU WILL HAVE 2 MIN TO DO SO." << endl;
-	cout << "Press any character to begin" << endl;
-	cin >> c;
-	*/
-//if(cin) {
-//char choice=c;
 //int start_time = time(0);
 	cout << "LET'S ASSUME YOU BROKE INTO THE STORE, BUT SET OFF THE SECURITY ALARM. YOU SEE THE SAFE WITH THE MONIES. YOU..." << endl;
 	cout << "THE LOCAL ALLYING GANG IS ON THEIR WAY. YOU HAVE 2 MIN TO BREAK INTO THE SAFE. TIME STARTED WHEN YOU WERE READING" << endl;
@@ -115,6 +95,10 @@ int main() {
 	cin >> choice;
 	int current_time = time(0);
 	MaxTime = time(0) + 120;
+	if(current_time > MaxTime){
+		cout << "You took too long to decide. The gang has caught you. GAME OVER." << endl; 
+		exit(0); 
+	} 
 	if (choice != 'a' && choice != 'b' && choice != 'c') die();
 	if (choice == 'a') {
 		cout << "You accidentally burn away some of the money." << endl;
@@ -122,7 +106,7 @@ int main() {
 		int score1 = money1.loot();
 		//set score to 30% of score would have gotten
 		map.at(it1->first).set_score(.70 * score1);
-		cout << "Money collected: " << "$" << score1 << endl; //fix to actual
+		cout << "Money salvaged: " << "$" << score1 << endl; //fix to actual
 	} else if (choice == 'b') {
 		cout << "Guess a three digit number. You have till time runs out." << endl;
 		while (true) {
@@ -141,7 +125,7 @@ int main() {
 				return 0;
 			}
 			if (guess_num == combo) {
-				cout << "That's the combo!" << endl;
+				cout << "That's the combo! PLAYER TWO'S TURN." << endl;
 				//collect money
 				int score1 = money1.loot();
 				map.at(it1->first).set_score(score1);
@@ -154,8 +138,7 @@ int main() {
 		map.at(it1->first).set_score(score1);
 		cout << "Money collected: " << "$" << score1  << endl; //fix to actual
 	}
-	current_time = current_time - start_time;//megan fix 
-	cout << "Time completed in: " << MaxTime - current_time - 120 << endl; 
+
 //	}
 //}
 
@@ -177,20 +160,15 @@ int main() {
 //generates random velocity btwn 65 and 90
 	int getaway_veloc = rand() % 90 + 65;
 
-
+//time when they meet (are caught) 
+	double time_caught = abs((getaway_car.distance() - police_car.distance()) / (police_veloc - getaway_veloc));
 //PLAYER 2's PART
 	cout << "PLAYER 2: THE GANG IS STILL COMING. YOU MUST NAVIGATE THROUGH THE CITY MOST EFFICIENTLY." << endl;
 	cout << "YOU HAVE 2 MIN." << endl;
-//cout << "Press any character to begin" << endl;
-//cin >> c;
 
-//if(cin) {
-//	int start_time = 0;
 	current_time = time(0);
 	MaxTime = time(0) + 120;
-	int time_left = MaxTime - current_time; 
-	//int time_since_start = current_time - start_time;
-	//char choice;
+	
 	cout << "YOU ARE DRIVING. ENTER LETTERS a, b, c TO PICK YOUR ROUTE." << endl;
 	cout << "a) left" << endl;
 	cout << "b) right" << endl;
@@ -199,9 +177,14 @@ int main() {
 
 	if (choice == 'a') {
 		//cout<<"You ran into a pedestrian. The cops catch you. You go to jail. Game over."<<endl;
+		int escape_time = MaxTime-current_time; 
 		cout << "You ran into a pedestrian. You wait 1 min for him/her/it to cross." << endl;
-		cout << "Time left: " << time_left - 60 << endl;
+		cout << "You have " << escape_time - 60 << "s to escape." << endl;
+		cout << "The gang has " << time_caught <<"s to catch you." << endl; 
+		if(double(escape_time-60) <= time_caught) {
+			cout << "Sorry dude, the gang overtook you. GAME OVER." << endl; 
 	}
+		else if(double(escape_time-60) > time_caught) cout << "You escaped the gang! LEVEL 1 COMPLETE." << endl;
 	else if (choice == 'b') {
 		cout << "You encounter steep hills. Bye bye velocity." << endl;
 		getaway_veloc -= 20; 
@@ -210,18 +193,19 @@ int main() {
 	else if (choice == 'c') {
 		cout << "Still deciding" << endl;
 	}
+	}
 //}
 
 
 //if riddle is solved...
-	cout << "Congratulations, you are a riddlemaster. Continue to the getaway car." << endl;
+//	cout << "Congratulations, you are a riddlemaster. Continue to the getaway car." << endl;
 
 
 //IF time>=time_caught....die...police caught you
 
 
 //time when they meet (are caught)
-	double time_caught = abs(getaway_car.distance() - police_car.distance()) / (police_veloc - getaway_veloc);
+	//double time_caught = abs(getaway_car.distance() - police_car.distance()) / (police_veloc + getaway_veloc);
 
 //END OF PROGRAM. OUTPUT FINAL RESULTS.
 //THE HEAP
@@ -241,7 +225,7 @@ int main() {
 		winner_score = map.at(it2->first).get_score();
 	}
 	cout << "The winner is " << winner << endl;
-	cout << "with a score of: " << winner_score << endl;
+	cout << "with a score of: $" << winner_score << endl;
 	cout << "GAME OVER." << endl;
 
 }
