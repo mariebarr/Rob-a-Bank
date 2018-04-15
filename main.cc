@@ -85,6 +85,8 @@ int main() {
 
 
 //int start_time = time(0);
+	cout << "                                       " << endl; //space to make it easier to read
+	cout << "                                       " << endl; 
 	cout << "LET'S ASSUME YOU BROKE INTO THE STORE, BUT SET OFF THE SECURITY ALARM. YOU SEE THE SAFE WITH THE MONIES. YOU..." << endl;
 	cout << "THE LOCAL ALLYING GANG IS ON THEIR WAY. YOU HAVE 2 MIN TO BREAK INTO THE SAFE. TIME STARTED WHEN YOU WERE READING" << endl;
 	cout << "a) burn it off with thermite" << endl;
@@ -97,6 +99,9 @@ int main() {
 	char choice;
 	cin >> choice;
 	int current_time = time(0); 
+
+	cout << "                              " << endl;//space
+	cout << "                              " << endl; 
 	if(current_time > MaxTime){
 		cout << "You took too long to decide. The gang has caught you. GAME OVER." << endl; 
 		exit(0); 
@@ -172,6 +177,8 @@ int score2=map.at(it2->first).get_score();
 	//FOR ME
 	//	cout<<time_caught;
 //PLAYER 2's PART
+	cout << "                                                    " << endl; //adding space bc to make it easier to read
+	cout << "                                                    " << endl;
 	cout << "PLAYER 2: THE GANG IS STILL COMING. YOU MUST NAVIGATE THROUGH THE CITY MOST EFFICIENTLY." << endl;
 	cout << "YOU HAVE 2 MIN." << endl;
 
@@ -183,6 +190,8 @@ int score2=map.at(it2->first).get_score();
 	cout << "b) right" << endl;
 	cout << "c) straight" << endl;
 	cin >> choice;
+	cout << "                                        " << endl;//space 
+	cout << "                                        " << endl;
 
 	if (choice == 'a') {
 		//cout<<"You ran into a pedestrian. The cops catch you. You go to jail. Game over."<<endl;
