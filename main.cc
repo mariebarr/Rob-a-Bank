@@ -100,8 +100,7 @@ int main() {
 	cin >> choice;
 	int current_time = time(0); 
 
-	cout << "                              " << endl;//space
-	cout << "                              " << endl; 
+	cout << "                              " << endl;//space 
 	if(current_time > MaxTime){
 		cout << "You took too long to decide. The gang has caught you. GAME OVER." << endl; 
 		exit(0); 
@@ -178,7 +177,6 @@ int score2=map.at(it2->first).get_score();
 	//	cout<<time_caught;
 //PLAYER 2's PART
 	cout << "                                                    " << endl; //adding space bc to make it easier to read
-	cout << "                                                    " << endl;
 	cout << "PLAYER 2: THE GANG IS STILL COMING. YOU MUST NAVIGATE THROUGH THE CITY MOST EFFICIENTLY." << endl;
 	cout << "YOU HAVE 2 MIN." << endl;
 
@@ -191,7 +189,6 @@ int score2=map.at(it2->first).get_score();
 	cout << "c) straight" << endl;
 	cin >> choice;
 	cout << "                                        " << endl;//space 
-	cout << "                                        " << endl;
 
 	if (choice == 'a') {
 		//cout<<"You ran into a pedestrian. The cops catch you. You go to jail. Game over."<<endl;
@@ -208,7 +205,7 @@ int score2=map.at(it2->first).get_score();
 		cout << "You escaped the gang!"<<endl;// Plus 50 for being awesome."<<endl;// LEVEL 1 COMPLETE." << endl;
 		int add=rand()%403003+2000;
 		map.at(it2->first).set_score(score2+add);
-		//cout << "You get $" << score2<< endl; 
+		cout << "You get: $" << map.at(it2->first).get_score() << endl; 
 	}
 	else if (choice == 'b') {
 		cout << "You encounter steep hills. Bye bye velocity." << endl;
@@ -218,6 +215,7 @@ int score2=map.at(it2->first).get_score();
 		if(current_time <= time_caught){
 			cout << "Sorry dude, the gang overtook you. GAME OVER." << endl;
 			map.at(it2->first).set_score(0);
+			cout << "You get: $" << map.at(it2->first).get_score() << endl; 
 		//	cout << "You get $" << score2 << endl; 
 			exit(0); 
 		}
@@ -225,7 +223,7 @@ int score2=map.at(it2->first).get_score();
 			cout << "You escaped the gang!"<<endl; // LEVEL 1 COMPLETE." << endl; 
 			int add2=rand()%20000+503;
 			map.at(it2->first).set_score(score2+add2);
-		//	cout << "You get $" << score2<< endl; 
+			cout << "You get: $" << map.at(it2->first).get_score() << endl; 
 		}
 	}
 
@@ -236,12 +234,14 @@ int score2=map.at(it2->first).get_score();
 		if(current_time <= time_caught){
 			cout << "Sorry dude, the gang overtook you. GAME OVER." << endl;
 			map.at(it2->first).set_score(0);
+			cout << "You get: $" << map.at(it2->first).get_score() << endl; 
 			exit(0); 
 		}
 		else{
 			cout << "You escaped the gang!"<<endl; //LEVEL 1 COMPLETE." << endl; 
 			int add3=rand()%90000+9034;
 			map.at(it2->first).set_score(score2+add3);
+			cout << "You get: $" << map.at(it2->first).get_score() << endl; 
 		}
 	}
 	
@@ -263,11 +263,17 @@ int score2=map.at(it2->first).get_score();
 		winner = map.at(it2->first).get_name();
 		winner_score = map.at(it2->first).get_score();
 	}
+	cout << "                                        " << endl; 
 	cout << "The winner is " << winner << endl;
 	cout << "with a score of: $" << winner_score << endl;
+	cout << "                         " << endl; 
 	cout<<"Final results:"<<endl;
-	cout<<map.at(it1->first).get_name()<<":"<<endl<<"$"<<map.at(it1->first).get_score()<<endl;
-	cout<<map.at(it2->first).get_name()<<":"<<endl<<"$"<<map.at(it2->first).get_score()<<endl;
+//	cout<<map.at(it1->first).get_name()<<":"<<endl<<"$"<<map.at(it1->first).get_score()<<endl;
+//	cout<<map.at(it2->first).get_name()<<":"<<endl<<"$"<<map.at(it2->first).get_score()<<endl;
+
+	cout<<map.at(it1->first).get_name()<<":"<< " $"<<map.at(it1->first).get_score()<<endl;
+	cout<<map.at(it2->first).get_name()<<":"<< " $"<<map.at(it2->first).get_score()<<endl;
+
 	
 	cout << "GAME OVER." << endl;
 
