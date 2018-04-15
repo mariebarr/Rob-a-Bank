@@ -69,6 +69,7 @@ int main() {
 	//clock() and CLOCKS_PER_TICK 
 	int start_time = time(0); //time begins ticking at bank
 	MaxTime = time(0) + 120;
+	srand(time(0));
 	int x_treas = rand() % 230 + 1;
 	int money_value = rand() % 100000 + 150;
 	Treasure money1(0, x_treas, 0, 0, money_value);
@@ -260,6 +261,10 @@ int score2=map.at(it2->first).get_score();
 	}
 	cout << "The winner is " << winner << endl;
 	cout << "with a score of: $" << winner_score << endl;
+	cout<<"Final results:"<<endl;
+	cout<<map.at(it1->first).get_name()<<":"<<endl<<"$"<<map.at(it1->first).get_score()<<endl;
+	cout<<map.at(it2->first).get_name()<<":"<<endl<<"$"<<map.at(it2->first).get_score()<<endl;
+	
 	cout << "GAME OVER." << endl;
 
 }
