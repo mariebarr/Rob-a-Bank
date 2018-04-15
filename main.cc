@@ -100,7 +100,6 @@ int main() {
 	cin >> choice;
 	int current_time = time(0); 
 
-	cout << "                              " << endl;//space 
 	if(current_time > MaxTime){
 		cout << "You took too long to decide. The gang has caught you. GAME OVER." << endl; 
 		exit(0); 
@@ -180,16 +179,21 @@ int score2=map.at(it2->first).get_score();
 	cout << "PLAYER 2: THE GANG IS STILL COMING. YOU MUST NAVIGATE THROUGH THE CITY MOST EFFICIENTLY." << endl;
 	cout << "YOU HAVE 2 MIN." << endl;
 
-	current_time = time(0);
-	MaxTime = time(0) + 120;
+	MaxTime = time(0) + 120; 	 
 	
+
 	cout << "YOU ARE DRIVING. ENTER LETTERS a, b, c TO PICK YOUR ROUTE." << endl;
 	cout << "a) left" << endl;
 	cout << "b) right" << endl;
 	cout << "c) straight" << endl;
 	cin >> choice;
+	current_time = time(0); 
 	cout << "                                        " << endl;//space 
 
+	if (current_time > MaxTime) {
+		cout << "You took too long to decide. The gang caught you. GAME OVER." << endl;
+		exit(0); 
+	}
 	if (choice == 'a') {
 		//cout<<"You ran into a pedestrian. The cops catch you. You go to jail. Game over."<<endl;
 		int escape_time = MaxTime-current_time; 
