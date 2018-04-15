@@ -153,7 +153,7 @@ int main() {
 
 //Player 2 starts w/ player 1's ending score
 //int score2=score1;
-map.at(it2->first).set_score(map.at(it1->first).get_score());
+map.at(it2->first).set_score(map.at(it1->first).get_score()/2);
 int score2=map.at(it2->first).get_score();
 //DECLARATION OF IMPORTANT VARIABLES.
 //generate a random velocity btwn 50 and 75mph for the police car
@@ -205,8 +205,9 @@ int score2=map.at(it2->first).get_score();
 		//	cout << "You get $" << score2 << endl; 
 	}
 	else if(double(escape_time-60) > time_caught)
-		cout << "You escaped the gang! Plus 50 for being awesome."<<endl;// LEVEL 1 COMPLETE." << endl;
-		map.at(it2->first).set_score(score2+50);
+		cout << "You escaped the gang!"<<endl;// Plus 50 for being awesome."<<endl;// LEVEL 1 COMPLETE." << endl;
+		int add=rand()%403003+2000;
+		map.at(it2->first).set_score(score2+add);
 		//cout << "You get $" << score2<< endl; 
 	}
 	else if (choice == 'b') {
@@ -222,7 +223,8 @@ int score2=map.at(it2->first).get_score();
 		}
 		else{
 			cout << "You escaped the gang!"<<endl; // LEVEL 1 COMPLETE." << endl; 
-			map.at(it2->first).set_score(score2+10);
+			int add2=rand()%20000+503;
+			map.at(it2->first).set_score(score2+add2);
 		//	cout << "You get $" << score2<< endl; 
 		}
 	}
@@ -231,33 +233,18 @@ int score2=map.at(it2->first).get_score();
 		cout << "You convieniently found a highway. Your speed has been increased by 20 m/s." << endl;
 		getaway_veloc += 20; 
 		cout << "Your speed is: " << getaway_veloc << " m/s" << endl; 
-		map.at(it2->first).set_score(score2+10);
-	//	cout << "The gang is travelling at: " << time_caught << "m/s" << endl;
 		if(current_time <= time_caught){
 			cout << "Sorry dude, the gang overtook you. GAME OVER." << endl;
 			map.at(it2->first).set_score(0);
-		//	cout << "You get $" << score2 << endl;
 			exit(0); 
 		}
 		else{
 			cout << "You escaped the gang!"<<endl; //LEVEL 1 COMPLETE." << endl; 
-		//	cout << "You get $" << score2 << endl; 
-			//no update to score b/c taking a highway requires no skillz
+			int add3=rand()%90000+9034;
+			map.at(it2->first).set_score(score2+add3);
 		}
 	}
 	
-//}
-
-
-//if riddle is solved...
-//	cout << "Congratulations, you are a riddlemaster. Continue to the getaway car." << endl;
-
-
-//IF time>=time_caught....die...police caught you
-
-
-//time when they meet (are caught)
-	//double time_caught = abs(getaway_car.distance() - police_car.distance()) / (police_veloc + getaway_veloc);
 
 //END OF PROGRAM. OUTPUT FINAL RESULTS.
 //THE HEAP
