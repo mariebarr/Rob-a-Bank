@@ -29,7 +29,16 @@ void die() {
 char c;
 string name1, name2;
 int main() {
-
+cout<<R"(
+ _______  ______   _______
+ \------\ \-----\  \\-----\				
+   -----/  \    \\  \\____/    _______	
+  \  \\ \   \    \\  \\_____  /______/
+   \  \\ \   \____\\  \\___\\
+    --- --/   -----/   \----/
+	   
+	   
+	  )"<<endl;
 	//HOLD PLAYER 1 AND PLAYER 2'S DATA IN A HASH TABLE
 	unordered_map<string, Competitor>map;
 	cout << "WELCOME TO ROB-A-BANK. THIS IS A 2 PLAYER RPG. ENTER YOUR NAMES TO START." << endl;
