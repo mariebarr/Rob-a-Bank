@@ -193,12 +193,12 @@ int score2=map.at(it2->first).get_score();
 		if(double(escape_time-60) <= time_caught) {
 			cout << "Sorry dude, the gang overtook you. GAME OVER." << endl; 
 			map.at(it2->first).set_score(0);
-			cout << "You get $" << score2 << endl; 
+		//	cout << "You get $" << score2 << endl; 
 	}
 	else if(double(escape_time-60) > time_caught)
 		cout << "You escaped the gang! Plus 50 for being awesome."<<endl;// LEVEL 1 COMPLETE." << endl;
 		map.at(it2->first).set_score(score2+50);
-		cout << "You get $" << score2<< endl; 
+		//cout << "You get $" << score2<< endl; 
 	}
 	else if (choice == 'b') {
 		cout << "You encounter steep hills. Bye bye velocity." << endl;
@@ -208,13 +208,13 @@ int score2=map.at(it2->first).get_score();
 		if(current_time <= time_caught){
 			cout << "Sorry dude, the gang overtook you. GAME OVER." << endl;
 			map.at(it2->first).set_score(0);
-			cout << "You get $" << score2 << endl; 
+		//	cout << "You get $" << score2 << endl; 
 			exit(0); 
 		}
 		else{
 			cout << "You escaped the gang!"<<endl; // LEVEL 1 COMPLETE." << endl; 
 			map.at(it2->first).set_score(score2+10);
-			cout << "You get $" << score2<< endl; 
+		//	cout << "You get $" << score2<< endl; 
 		}
 	}
 
@@ -222,16 +222,17 @@ int score2=map.at(it2->first).get_score();
 		cout << "You convieniently found a highway. Your speed has been increased by 20 m/s." << endl;
 		getaway_veloc += 20; 
 		cout << "Your speed is: " << getaway_veloc << " m/s" << endl; 
+		map.at(it2->first).set_score(score2+10);
 	//	cout << "The gang is travelling at: " << time_caught << "m/s" << endl;
 		if(current_time <= time_caught){
 			cout << "Sorry dude, the gang overtook you. GAME OVER." << endl;
 			map.at(it2->first).set_score(0);
-			cout << "You get $" << score2 << endl;
+		//	cout << "You get $" << score2 << endl;
 			exit(0); 
 		}
 		else{
 			cout << "You escaped the gang!"<<endl; //LEVEL 1 COMPLETE." << endl; 
-			cout << "You get $" << score2 << endl; 
+		//	cout << "You get $" << score2 << endl; 
 			//no update to score b/c taking a highway requires no skillz
 		}
 	}
