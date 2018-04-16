@@ -29,17 +29,21 @@ void die() {
 char c;
 string name1, name2;
 int main() {
+		
+
 cout<<R"(
  _______  ______   _______              ______                _______  _____  ___     ___    __    __
- \------\ \-----\  \\-----\			    \-----\               \\-----\ \----\ \  \\  \   \\  \ \  / /
-   -----/  \    \\  \\____/    _______	 \_____\     _______   \\____/  \____\ \  \ \ \   \\  \ \/ /_
+ \------\ \-----\  \\-----\             \-----\               \\-----\ \----\ \  \\  \   \\  \ \  / /
+   -----/  \    \\  \\____/    _______   \_____\     _______   \\____/  \____\ \  \ \ \   \\  \ \/ /_
    \ \\ \   \    \\  \\_____  /______/    \\   \\   /______/    \\____   \\  \\ \  \  \    \\  \ \-- \
     \ \\ \   \____\\  \\___\\              \\   \\               \\____\  \\  \\ \  \   \   \\  \ \ \ \
     --- --/   -----/   \----/               \\   \\               \----/   \\  \\ ---\   \ --/   --- --/
- 	---	-      ----     ----                ^^	  ^^               ----     ^^  ^^ ---    ---     --  -/								                          
-	)"<<'\n';
-	//HOLD PLAYER 1 AND PLAYER 2'S DATA IN A HASH TABLE
-	unordered_map<string, Competitor>map;
+     -- -      ----     ----                ^^    ^^               ----     ^^  ^^ ---    ---     --  -/                                                          
+					)"<<'\n';
+		//	cout<<R"(-------------...)";
+		//	cout<<R"(///\\\\\)";
+		//HOLD PLAYER 1 AND PLAYER 2'S DATA IN A HASH TABLE
+		unordered_map<string, Competitor>map;
 	cout << "WELCOME TO ROB-A-BANK. THIS IS A 2 PLAYER RPG. ENTER YOUR NAMES TO START." << endl;
 	int a = 0;
 	while (cin) {
@@ -92,7 +96,7 @@ cout<<R"(
 	cout << "YOU WILL HAVE 2 MIN TO DO SO." << endl;
 
 
-//int start_time = time(0);
+	//int start_time = time(0);
 	cout << "                                       " << endl; //space to make it easier to read
 	cout << "                                       " << endl; 
 	cout << "LET'S ASSUME YOU BROKE INTO THE STORE, BUT SET OFF THE SECURITY ALARM. YOU SEE THE SAFE WITH THE MONIES." << endl;
@@ -103,7 +107,7 @@ cout<<R"(
 	cout << "c) clip the lock off with some industrial lock cutters" << endl;
 
 	//have the user cin an answer
-	
+
 	MaxTime = time(0) + 60;
 	char choice;
 	cin >> choice;
@@ -153,10 +157,10 @@ cout<<R"(
 		cout << "Money collected: " << "$" << score1  << endl; //fix to actual
 	}
 
-//	}
-//}
+	//	}
+	//}
 
-	/*-------------------GETAWAY PART------------------------------*/
+/*-------------------GETAWAY PART------------------------------*/
 
 //Player 2 starts w/ player 1's ending score
 //int score2=score1;
@@ -164,130 +168,130 @@ map.at(it2->first).set_score(map.at(it1->first).get_score()/2);
 int score2=map.at(it2->first).get_score();
 //DECLARATION OF IMPORTANT VARIABLES.
 //generate a random velocity btwn 50 and 75mph for the police car
-	int police_veloc = rand() % 100 + 75;
+int police_veloc = rand() % 100 + 75;
 
 //1 dimensional world (y is always 0)
 //place the police car somewhere initially
 //x position is somewhere btwn 1000 and 500m away from bank
-	int x = rand() % 1000 + 500;
-	Spot police_car(x, 0);
+int x = rand() % 1000 + 500;
+Spot police_car(x, 0);
 
 //getaway car starts at bank
-	Spot getaway_car(0, 0);
+Spot getaway_car(0, 0);
 
 //generates random velocity btwn 65 and 90
-	int getaway_veloc = rand() % 90 + 65;
+int getaway_veloc = rand() % 90 + 65;
 
 //time when they meet (are caught) 
-	double time_caught = abs((getaway_car.distance() - police_car.distance()) / (police_veloc - getaway_veloc));
+double time_caught = abs((getaway_car.distance() - police_car.distance()) / (police_veloc - getaway_veloc));
 
-	//FOR ME
-	//	cout<<time_caught;
+//FOR ME
+//	cout<<time_caught;
 //PLAYER 2's PART
-	cout << "                                                    " << endl; //adding space bc to make it easier to read
-	cout << "PLAYER 2: THE GANG IS STILL COMING. YOU MUST NAVIGATE THROUGH THE CITY MOST EFFICIENTLY." << endl;
-	cout << "YOU HAVE 2 MIN." << endl;
+cout << "                                                    " << endl; //adding space bc to make it easier to read
+cout << "PLAYER 2: THE GANG IS STILL COMING. YOU MUST NAVIGATE THROUGH THE CITY MOST EFFICIENTLY." << endl;
+cout << "YOU HAVE 2 MIN." << endl;
 
-	MaxTime = time(0) + 120; 	 
-	
+MaxTime = time(0) + 120; 	 
 
-	cout << "YOU ARE DRIVING. ENTER LETTERS a, b, c TO PICK YOUR ROUTE." << endl;
-	cout << "a) left" << endl;
-	cout << "b) right" << endl;
-	cout << "c) straight" << endl;
-	cin >> choice;
-	current_time = time(0); 
-	cout << "                                        " << endl;//space 
 
-	if (current_time > MaxTime) {
-		cout << "You took too long to decide. The gang caught you. GAME OVER." << endl;
-		exit(0); 
-	}
-	if (choice == 'a') {
-		//cout<<"You ran into a pedestrian. The cops catch you. You go to jail. Game over."<<endl;
-		int escape_time = MaxTime-current_time; 
-		cout << "You ran into a pedestrian. You wait 30s for him/her/it to cross." << endl;
-		cout << "You have " << escape_time - 30 << "s to escape." << endl;
+cout << "YOU ARE DRIVING. ENTER LETTERS a, b, c TO PICK YOUR ROUTE." << endl;
+cout << "a) left" << endl;
+cout << "b) right" << endl;
+cout << "c) straight" << endl;
+cin >> choice;
+current_time = time(0); 
+cout << "                                        " << endl;//space 
+
+if (current_time > MaxTime) {
+	cout << "You took too long to decide. The gang caught you. GAME OVER." << endl;
+	exit(0); 
+}
+if (choice == 'a') {
+	//cout<<"You ran into a pedestrian. The cops catch you. You go to jail. Game over."<<endl;
+	int escape_time = MaxTime-current_time; 
+	cout << "You ran into a pedestrian. You wait 30s for him/her/it to cross." << endl;
+	cout << "You have " << escape_time - 30 << "s to escape." << endl;
 	//	cout << "The gang has " << time_caught <<"s to catch you." << endl; 
-		if(double(escape_time-30) <= time_caught) {
-			cout << "Sorry dude, the gang overtook you. GAME OVER." << endl; 
-			map.at(it2->first).set_score(0);
+	if(double(escape_time-30) <= time_caught) {
+		cout << "Sorry dude, the gang overtook you. GAME OVER." << endl; 
+		map.at(it2->first).set_score(0);
 		//	cout << "You get $" << score2 << endl; 
 	}
 	else if(double(escape_time-30) > time_caught)
 		cout << "You escaped the gang!"<<endl;// Plus 50 for being awesome."<<endl;// LEVEL 1 COMPLETE." << endl;
-		int add=rand()%403003+2000;
-		map.at(it2->first).set_score(score2+add);
+	int add=rand()%403003+2000;
+	map.at(it2->first).set_score(score2+add);
+	cout << "You get: $" << map.at(it2->first).get_score() << endl; 
+}
+else if (choice == 'b') {
+	cout << "You encounter steep hills. Bye bye velocity." << endl;
+	getaway_veloc -= 20; 
+	cout << "Your speed is: " << getaway_veloc <<" m/s" << endl; 
+	//	cout << "The gang is travelling at: " << time_caught<< "m/s" << endl;
+	if(current_time <= time_caught){
+		cout << "Sorry dude, the gang overtook you. GAME OVER." << endl;
+		map.at(it2->first).set_score(0);
+		cout << "You get: $" << map.at(it2->first).get_score() << endl; 
+		//	cout << "You get $" << score2 << endl; 
+		exit(0); 
+	}
+	else{
+		cout << "You escaped the gang!"<<endl; // LEVEL 1 COMPLETE." << endl; 
+		int add2=rand()%20000+503;
+		map.at(it2->first).set_score(score2+add2);
 		cout << "You get: $" << map.at(it2->first).get_score() << endl; 
 	}
-	else if (choice == 'b') {
-		cout << "You encounter steep hills. Bye bye velocity." << endl;
-		getaway_veloc -= 20; 
-		cout << "Your speed is: " << getaway_veloc <<" m/s" << endl; 
-	//	cout << "The gang is travelling at: " << time_caught<< "m/s" << endl;
-		if(current_time <= time_caught){
-			cout << "Sorry dude, the gang overtook you. GAME OVER." << endl;
-			map.at(it2->first).set_score(0);
-			cout << "You get: $" << map.at(it2->first).get_score() << endl; 
-		//	cout << "You get $" << score2 << endl; 
-			exit(0); 
-		}
-		else{
-			cout << "You escaped the gang!"<<endl; // LEVEL 1 COMPLETE." << endl; 
-			int add2=rand()%20000+503;
-			map.at(it2->first).set_score(score2+add2);
-			cout << "You get: $" << map.at(it2->first).get_score() << endl; 
-		}
-	}
+}
 
-	else if (choice == 'c') {
-		cout << "You convieniently found a highway. Your speed has been increased by 20 m/s." << endl;
-		getaway_veloc += 20; 
-		cout << "Your speed is: " << getaway_veloc << " m/s" << endl; 
-		if(current_time <= time_caught){
-			cout << "Sorry dude, the gang overtook you. GAME OVER." << endl;
-			map.at(it2->first).set_score(0);
-			cout << "You get: $" << map.at(it2->first).get_score() << endl; 
-			exit(0); 
-		}
-		else{
-			cout << "You escaped the gang!"<<endl; //LEVEL 1 COMPLETE." << endl; 
-			int add3=rand()%90000+9034;
-			map.at(it2->first).set_score(score2+add3);
-			cout << "You get: $" << map.at(it2->first).get_score() << endl; 
-		}
+else if (choice == 'c') {
+	cout << "You convieniently found a highway. Your speed has been increased by 20 m/s." << endl;
+	getaway_veloc += 20; 
+	cout << "Your speed is: " << getaway_veloc << " m/s" << endl; 
+	if(current_time <= time_caught){
+		cout << "Sorry dude, the gang overtook you. GAME OVER." << endl;
+		map.at(it2->first).set_score(0);
+		cout << "You get: $" << map.at(it2->first).get_score() << endl; 
+		exit(0); 
 	}
-	
+	else{
+		cout << "You escaped the gang!"<<endl; //LEVEL 1 COMPLETE." << endl; 
+		int add3=rand()%90000+9034;
+		map.at(it2->first).set_score(score2+add3);
+		cout << "You get: $" << map.at(it2->first).get_score() << endl; 
+	}
+}
+
 
 //END OF PROGRAM. OUTPUT FINAL RESULTS.
 //THE HEAP
-	vector<int>scores;
-	scores.push_back(map.at(it1->first).get_score());
-	scores.push_back(map.at(it2->first).get_score());
-	make_heap(scores.begin(), scores.end());
+vector<int>scores;
+scores.push_back(map.at(it1->first).get_score());
+scores.push_back(map.at(it2->first).get_score());
+make_heap(scores.begin(), scores.end());
 
 //store winner. scores.front() is top score from the heap!
-	string winner;
-	int winner_score = scores.front();
-	if (map.at(it1->first).get_score() == winner_score) {
-		winner = map.at(it1->first).get_name();
-		winner_score = map.at(it1->first).get_score();
-	} else {
-		winner = map.at(it2->first).get_name();
-		winner_score = map.at(it2->first).get_score();
-	}
-	cout << "                                        " << endl; 
-	cout << "The winner is " << winner << endl;
-	cout << "with a score of: $" << winner_score << endl;
-	cout << "                         " << endl; 
-	cout<<"Final results:"<<endl;
+string winner;
+int winner_score = scores.front();
+if (map.at(it1->first).get_score() == winner_score) {
+	winner = map.at(it1->first).get_name();
+	winner_score = map.at(it1->first).get_score();
+} else {
+	winner = map.at(it2->first).get_name();
+	winner_score = map.at(it2->first).get_score();
+}
+cout << "                                        " << endl; 
+cout << "The winner is " << winner << endl;
+cout << "with a score of: $" << winner_score << endl;
+cout << "                         " << endl; 
+cout<<"Final results:"<<endl;
 //	cout<<map.at(it1->first).get_name()<<":"<<endl<<"$"<<map.at(it1->first).get_score()<<endl;
 //	cout<<map.at(it2->first).get_name()<<":"<<endl<<"$"<<map.at(it2->first).get_score()<<endl;
 
-	cout<<map.at(it1->first).get_name()<<":"<< " $"<<map.at(it1->first).get_score()<<endl;
-	cout<<map.at(it2->first).get_name()<<":"<< " $"<<map.at(it2->first).get_score()<<endl;
+cout<<map.at(it1->first).get_name()<<":"<< " $"<<map.at(it1->first).get_score()<<endl;
+cout<<map.at(it2->first).get_name()<<":"<< " $"<<map.at(it2->first).get_score()<<endl;
 
-	
-	cout << "GAME OVER." << endl;
+
+cout << "GAME OVER." << endl;
 
 }
